@@ -49,7 +49,6 @@ Desktop toasts when agents change state (toggleable in plugin settings):
 | **Needs attention** | agent entered `blocked` | critical |
 | **Finished** | working agent transitioned to `done` | normal |
 | **Agent gone** | blocked agent's pane vanished between polls | normal |
-| **Herdr reconnected** | herdr came back online after being down | normal |
 
 Clicking a **needs attention** or **finished** toast jumps straight to that
 agent.
