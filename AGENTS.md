@@ -2,7 +2,7 @@
 
 ## What This Application Does
 
-`mrpbennett.herdr-agents` is an Omarchy `bar-widget` plugin that surfaces the
+`enisbu.herdr-status` is an Omarchy `bar-widget` plugin that surfaces the
 live state of a Herdr session in the status bar. It shows every running Herdr
 agent, what the agent is currently doing, and which Herdr workspace it runs
 in, and it jumps straight to an agent inside Herdr when clicked — from any
@@ -149,7 +149,7 @@ mock the subprocess boundaries instead.
 
 ### Issue tracker
 
-Issues are tracked on GitHub (`mrpbennett/qs-herdr-agents`) via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+Issues are tracked on GitHub (`enisbu/omarchy-herdr-status`) via the `gh` CLI. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 

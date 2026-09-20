@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "mrpbennett.herdr-agents",
-  "name": "Herdr Agents",
+  "id": "enisbu.herdr-status",
+  "name": "Herdr Status",
   "version": "0.2.2",
-  "author": "Paul Bennett",
+  "author": "Enis Budancamanak",
   "license": "MIT",
   "description": "Live Herdr agent status in the Omarchy bar: every agent's state, current activity, workspace, and click-to-focus.",
   "kinds": [
@@ -57,5 +57,6 @@
         "description": "Terminal window class used to find the Herdr window when its process tree cannot be inspected locally (e.g. Herdr over SSH in a local terminal). Leave empty to disable. Example: ghostty"
       }
     ]
-  }
+  },
+  "homepage": "https://github.com/enisbu/omarchy-herdr-status"
 }

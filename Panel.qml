@@ -17,8 +17,8 @@ import qs.Ui
 // raises the Herdr window, from any workspace.
 Panel {
   id: root
-  moduleName: "mrpbennett.herdr-agents"
-  ipcTarget: "mrpbennett.herdr-agents"
+  moduleName: "enisbu.herdr-status"
+  ipcTarget: "enisbu.herdr-status"
   manageIpc: false
 
   readonly property color foreground: bar ? bar.foreground : Color.foreground

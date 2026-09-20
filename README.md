@@ -1,4 +1,6 @@
-# Herdr Agents
+# Herdr Status
+
+Enis' fork of [mrpbennett/qs-herdr-agents](https://github.com/mrpbennett/qs-herdr-agents): rows ordered by status (blocked, working, done, idle), no folder line. Install with `omarchy plugin add https://github.com/enisbu/omarchy-herdr-status.git --enable`.
 
 ![herdr-agents](preview.png)
 
