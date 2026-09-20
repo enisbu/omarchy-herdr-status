@@ -78,10 +78,10 @@ Bind global Hyprland keybinds to jump without opening the panel:
 
 ```sh
 # Jump to the first blocked agent (falls back to the first agent):
-omarchy-shell ipc call mrpbennett.herdr-agents focus
+omarchy-shell ipc call enisbu.herdr-status focus
 
 # Jump to a specific agent by name:
-omarchy-shell ipc call mrpbennett.herdr-agents focusAgent opencode
+omarchy-shell ipc call enisbu.herdr-status focusAgent opencode
 
 # Other actions: toggle, open, close, show, hide, next, refresh
 ```
@@ -118,7 +118,7 @@ omarchy-shell ipc call mrpbennett.herdr-agents focusAgent opencode
 The standard way to install an Omarchy plugin, straight from the repo:
 
 ```sh
-omarchy plugin add https://github.com/mrpbennett/qs-herdr-agents.git --enable
+omarchy plugin add https://github.com/enisbu/omarchy-herdr-status.git --enable
 ```
 
 This clones the plugin into `~/.config/omarchy/plugins/`, validates the
@@ -129,13 +129,13 @@ The shell hot-reloads; if the icon does not appear, run
 ## Update
 
 ```sh
-omarchy plugin update mrpbennett.herdr-agents
+omarchy plugin update enisbu.herdr-status
 ```
 
 ## Uninstall
 
 ```sh
-omarchy plugin remove mrpbennett.herdr-agents
+omarchy plugin remove enisbu.herdr-status
 ```
 
 This disables the plugin and removes it from `~/.config/omarchy/plugins/`,
@@ -146,7 +146,7 @@ leaving the rest of your `shell.json` untouched.
 1. **Remove the plugin** (disables and removes the installed copy):
 
    ```sh
-   omarchy plugin remove mrpbennett.herdr-agents
+   omarchy plugin remove enisbu.herdr-status
    ```
 
 2. **Remove the cloned repository** (the source code on disk):

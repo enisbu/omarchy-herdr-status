@@ -132,12 +132,8 @@ Item {
     root.blockedCount = counts.blocked
     root._consecutiveFailures = 0
 
-    // Emit a reconnect toast when herdr comes back online after being down.
-    var wasDown = !root.connected
     root.connected = true
     root.error = ""
-    if (wasDown && root._baseline)
-      root.notify("Herdr reconnected", "", "normal")
   }
 
   // Keep the ListModel updated in place so the panel's scroll position and
