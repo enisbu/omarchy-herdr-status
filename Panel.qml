@@ -595,6 +595,7 @@ Panel {
           spacing: Style.space(8)
 
           Text {
+            visible: false
             text: row.agentFolder
             color: Qt.darker(root.foreground, 1.75)
             font.family: root.fontFamily
