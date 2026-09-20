@@ -587,16 +587,16 @@ Panel {
 
         RowLayout {
           Layout.fillWidth: true
-          spacing: Style.space(8)
+          spacing: Style.space(4)
 
           Image {
             visible: source !== ""
             source: row.agentName === "claude" ? Qt.resolvedUrl("assets/claude.svg")
               : (row.agentName === "codex" ? Qt.resolvedUrl("assets/codex.svg") : "")
-            sourceSize.width: Style.space(14)
-            sourceSize.height: Style.space(14)
-            Layout.preferredWidth: Style.space(14)
-            Layout.preferredHeight: Style.space(14)
+            sourceSize.width: Style.space(11)
+            sourceSize.height: Style.space(11)
+            Layout.preferredWidth: Style.space(11)
+            Layout.preferredHeight: Style.space(11)
             Layout.alignment: Qt.AlignVCenter
           }
 
