@@ -48,6 +48,10 @@ function buildRecords(snapshot, stateByPane) {
   var workspaces = snapshot.workspaces || []
   for (var i = 0; i < workspaces.length; i++)
     labelById[workspaces[i].workspace_id] = String(workspaces[i].label || "")
+  var tabLabelById = {}
+  var tabs = snapshot.tabs || []
+  for (var t = 0; t < tabs.length; t++)
+    tabLabelById[tabs[t].tab_id] = String(tabs[t].label || "")
 
   var byPane = {}
   var agentsIn = snapshot.agents || []
@@ -76,6 +80,7 @@ function buildRecords(snapshot, stateByPane) {
       paneId: paneId,
       workspaceId: String(agent.workspace_id || ""),
       workspaceLabel: labelById[agent.workspace_id] || String(agent.workspace_id || ""),
+      tabLabel: tabLabelById[agent.tab_id] || "",
       focused: !!agent.focused,
       enteredAt: stateByPane[paneId].enteredAt
     }

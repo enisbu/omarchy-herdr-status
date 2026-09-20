@@ -370,6 +370,7 @@ Panel {
               required property string folder
               required property string paneId
               required property string workspaceLabel
+              required property string tabLabel
               required property bool focused
               required property double enteredAt
 
@@ -377,6 +378,8 @@ Panel {
                 || name.toLowerCase().indexOf(root.filterText.toLowerCase()) >= 0
                 || folder.toLowerCase().indexOf(root.filterText.toLowerCase()) >= 0
                 || workspaceLabel.toLowerCase().indexOf(root.filterText.toLowerCase()) >= 0
+                || tabLabel.toLowerCase().indexOf(root.filterText.toLowerCase()) >= 0
+                || title.toLowerCase().indexOf(root.filterText.toLowerCase()) >= 0
               width: parent.width
               agentName: name
               agentStatus: status
@@ -384,6 +387,7 @@ Panel {
               agentCwd: cwd
               agentFolder: folder
               agentWorkspace: workspaceLabel
+              agentTab: tabLabel
               isFocused: focused
               agentEnteredAt: enteredAt
               hasCursor: root.cursorActive && root.selectedPane === paneId
@@ -494,6 +498,7 @@ Panel {
     property string agentCwd: ""
     property string agentFolder: ""
     property string agentWorkspace: ""
+    property string agentTab: ""
     property bool isFocused: false
     property bool mouseHover: false
     property double agentEnteredAt: 0
@@ -543,6 +548,36 @@ Panel {
           Layout.fillWidth: true
           spacing: Style.space(8)
 
+          Text {
+            text: row.agentTab !== "" ? row.agentWorkspace + " · " + row.agentTab : row.agentWorkspace
+            color: root.dim
+            font.family: root.fontFamily
+            font.pixelSize: Style.font.caption
+            elide: Text.ElideRight
+            Layout.fillWidth: true
+          }
+
+          Text {
+            text: row.statusLabel
+            color: row.statusColor
+            font.family: root.fontFamily
+            font.pixelSize: Style.font.caption
+            font.bold: true
+          }
+
+          Text {
+            visible: row.elapsedText !== ""
+            text: row.elapsedText
+            color: root.dim
+            font.family: root.fontFamily
+            font.pixelSize: Style.font.caption
+          }
+        }
+
+        RowLayout {
+          Layout.fillWidth: true
+          spacing: Style.space(8)
+
           Image {
             visible: source !== ""
             source: row.agentName === "claude" ? Qt.resolvedUrl("assets/claude.svg")
@@ -564,41 +599,6 @@ Panel {
             elide: Text.ElideRight
             Layout.fillWidth: true
           }
-
-          Text {
-            text: row.agentWorkspace
-            color: root.dim
-            font.family: root.fontFamily
-            font.pixelSize: Style.font.caption
-            elide: Text.ElideRight
-            Layout.maximumWidth: Style.space(150)
-          }
-
-          Text {
-            text: row.statusLabel
-            color: row.statusColor
-            font.family: root.fontFamily
-            font.pixelSize: Style.font.caption
-            font.bold: true
-          }
-
-          Text {
-            visible: row.elapsedText !== ""
-            text: row.elapsedText
-            color: root.dim
-            font.family: root.fontFamily
-            font.pixelSize: Style.font.caption
-          }
-        }
-
-        Text {
-          visible: false
-          Layout.fillWidth: true
-          text: row.agentTitle
-          color: root.dim
-          font.family: root.fontFamily
-          font.pixelSize: Style.font.bodySmall
-          elide: Text.ElideRight
         }
 
         RowLayout {

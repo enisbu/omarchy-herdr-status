@@ -158,6 +158,7 @@ Item {
         item.folder = record.folder
         item.workspaceId = record.workspaceId
         item.workspaceLabel = record.workspaceLabel
+        item.tabLabel = record.tabLabel
         item.focused = record.focused
         item.enteredAt = record.enteredAt
       } else {
