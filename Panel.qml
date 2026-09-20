@@ -6,7 +6,7 @@ import Quickshell.Io
 import qs.Commons
 import qs.Ui
 
-// Herdr Agents — one bar icon and one panel.
+// Herdr Status — one bar icon and one panel.
 //
 // Bar: a static agent glyph tinted by the fleet state (accent = someone
 // working, urgent = someone blocked) with a badge counting busy agents.
@@ -292,7 +292,7 @@ Panel {
 
           PanelHero {
             width: parent.width
-            title: "Herdr Agents"
+            title: "Herdr Status"
             meta: root.statusText()
             detail: service.error !== "" && !service.connected
               ? service.error
@@ -543,9 +543,20 @@ Panel {
           Layout.fillWidth: true
           spacing: Style.space(8)
 
+          Image {
+            visible: source !== ""
+            source: row.agentName === "claude" ? Qt.resolvedUrl("assets/claude.svg")
+              : (row.agentName === "codex" ? Qt.resolvedUrl("assets/codex.svg") : "")
+            sourceSize.width: Style.space(14)
+            sourceSize.height: Style.space(14)
+            Layout.preferredWidth: Style.space(14)
+            Layout.preferredHeight: Style.space(14)
+            Layout.alignment: Qt.AlignVCenter
+          }
+
           Text {
             id: nameText
-            text: row.agentName
+            text: row.agentTitle !== "" ? row.agentTitle : row.agentName
             color: root.foreground
             font.family: root.fontFamily
             font.pixelSize: Style.font.body
@@ -581,7 +592,7 @@ Panel {
         }
 
         Text {
-          visible: row.agentTitle !== ""
+          visible: false
           Layout.fillWidth: true
           text: row.agentTitle
           color: root.dim

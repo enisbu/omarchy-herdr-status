@@ -207,3 +207,5 @@ git diff --check
 ## License
 
 MIT — see [LICENSE](./LICENSE).
+
+Brand icons in `assets/` come from [eszanon/omarchy-herdr](https://github.com/eszanon/omarchy-herdr) (MIT).
