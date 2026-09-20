@@ -552,6 +552,23 @@ Panel {
           }
 
           Text {
+            id: spinner
+            visible: row.agentStatus === "working"
+            readonly property var frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+            property int frame: 0
+            text: frames[frame]
+            color: row.statusColor
+            font.family: root.fontFamily
+            font.pixelSize: Style.font.caption
+            Timer {
+              running: spinner.visible && row.visible
+              interval: 90
+              repeat: true
+              onTriggered: spinner.frame = (spinner.frame + 1) % spinner.frames.length
+            }
+          }
+
+          Text {
             text: row.statusLabel
             color: row.statusColor
             font.family: root.fontFamily
