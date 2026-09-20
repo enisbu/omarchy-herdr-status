@@ -534,12 +534,6 @@ Panel {
       anchors.rightMargin: Style.space(10)
       spacing: Style.space(10)
 
-      StatusDot {
-        Layout.alignment: Qt.AlignTop
-        Layout.topMargin: Style.space(4)
-        color: row.statusColor
-      }
-
       ColumnLayout {
         Layout.fillWidth: true
         spacing: Style.space(1)
