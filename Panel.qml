@@ -546,34 +546,38 @@ Panel {
             text: row.agentTab !== "" ? row.agentWorkspace + " · " + row.agentTab : row.agentWorkspace
             color: root.dim
             font.family: root.fontFamily
-            font.pixelSize: Style.font.caption
+            font.pixelSize: Style.font.bodySmall
             elide: Text.ElideRight
             Layout.fillWidth: true
           }
 
-          Text {
-            id: spinner
-            visible: row.agentStatus === "working"
-            readonly property var frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
-            property int frame: 0
-            text: frames[frame]
-            color: row.statusColor
-            font.family: root.fontFamily
-            font.pixelSize: Style.font.caption
-            Timer {
-              running: spinner.visible && row.visible
-              interval: 90
-              repeat: true
-              onTriggered: spinner.frame = (spinner.frame + 1) % spinner.frames.length
-            }
-          }
+          RowLayout {
+            spacing: Style.space(3)
 
-          Text {
-            text: row.statusLabel
-            color: row.statusColor
-            font.family: root.fontFamily
-            font.pixelSize: Style.font.caption
-            font.bold: true
+            Text {
+              id: spinner
+              visible: row.agentStatus === "working"
+              readonly property var frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+              property int frame: 0
+              text: frames[frame]
+              color: row.statusColor
+              font.family: root.fontFamily
+              font.pixelSize: Style.font.caption
+              Timer {
+                running: spinner.visible && row.visible
+                interval: 90
+                repeat: true
+                onTriggered: spinner.frame = (spinner.frame + 1) % spinner.frames.length
+              }
+            }
+
+            Text {
+              text: row.statusLabel
+              color: row.statusColor
+              font.family: root.fontFamily
+              font.pixelSize: Style.font.caption
+              font.bold: true
+            }
           }
 
           Text {
