@@ -188,8 +188,9 @@ Panel {
     iconComponent: Component {
       Row {
         id: barIcon
-        readonly property real glyphSize: Style.space(16)
+        readonly property real glyphSize: Style.font.icon
         spacing: Style.space(4)
+        height: barGlyph.implicitHeight
 
         Text {
           id: barGlyph
@@ -201,6 +202,7 @@ Panel {
           color: root.barColor
           font.family: root.fontFamily
           font.pixelSize: barIcon.glyphSize
+          verticalAlignment: Text.AlignVCenter
           Timer {
             running: barGlyph.spinning
             interval: 90
