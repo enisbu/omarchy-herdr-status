@@ -186,13 +186,14 @@ Panel {
     bar: root.bar
     tooltipText: root.barSummary()
     iconComponent: Component {
-      Item {
+      Row {
         id: barIcon
         readonly property real glyphSize: Style.space(16)
+        spacing: Style.space(4)
 
         Text {
           id: barGlyph
-          anchors.centerIn: parent
+          anchors.verticalCenter: parent.verticalCenter
           readonly property bool spinning: service.workingCount > 0 && service.blockedCount === 0
           readonly property var frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
           property int frame: 0
@@ -208,25 +209,15 @@ Panel {
           }
         }
 
-        Rectangle {
-          id: badge
+        Text {
+          id: badgeText
           visible: service.activeCount > 0
-          anchors.top: parent.top
-          anchors.right: parent.right
-          width: Math.max(badgeText.implicitWidth + Style.space(6), Style.space(13))
-          height: Style.space(13)
-          radius: height / 2
+          anchors.verticalCenter: parent.verticalCenter
+          text: service.activeCount > 9 ? "9+" : String(service.activeCount)
           color: root.barColor
-
-          Text {
-            id: badgeText
-            anchors.centerIn: parent
-            text: service.activeCount > 9 ? "9+" : String(service.activeCount)
-            color: Color.background
-            font.family: root.fontFamily
-            font.pixelSize: Style.font.caption
-            font.bold: true
-          }
+          font.family: root.fontFamily
+          font.pixelSize: Style.font.caption
+          font.bold: true
         }
       }
     }
