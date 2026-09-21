@@ -312,16 +312,8 @@ Panel {
           Text {
             visible: root.showStatusLine && text !== ""
             width: parent.width
-            text: {
-              if (service.error !== "") return service.error
-              var working = service.workingCount
-              var blocked = service.blockedCount
-              var parts = []
-              if (working > 0) parts.push(working + " working")
-              if (blocked > 0) parts.push(blocked + " blocked")
-              return parts.length ? parts.join(" · ") : ""
-            }
-            color: service.blockedCount > 0 ? Color.urgent : root.dim
+            text: service.error
+            color: Color.urgent
             font.family: root.fontFamily
             font.pixelSize: Style.font.caption
           }
