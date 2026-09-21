@@ -611,30 +611,6 @@ Panel {
             Layout.fillWidth: true
           }
         }
-
-        RowLayout {
-          Layout.fillWidth: true
-          spacing: Style.space(8)
-
-          Text {
-            visible: false
-            text: row.agentFolder
-            color: Qt.darker(root.foreground, 1.75)
-            font.family: root.fontFamily
-            font.pixelSize: Style.font.caption
-            elide: Text.ElideRight
-            Layout.fillWidth: true
-          }
-
-          Text {
-            visible: row.isFocused
-            text: "FOCUSED"
-            color: Color.accent
-            font.family: root.fontFamily
-            font.pixelSize: Style.font.caption
-            font.bold: true
-          }
-        }
       }
     }
 
