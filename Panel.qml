@@ -193,10 +193,19 @@ Panel {
         Text {
           id: barGlyph
           anchors.centerIn: parent
-          text: "󰳆"
+          readonly property bool spinning: service.workingCount > 0 && service.blockedCount === 0
+          readonly property var frames: ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"]
+          property int frame: 0
+          text: spinning ? frames[frame] : "󰳆"
           color: root.barColor
           font.family: root.fontFamily
           font.pixelSize: barIcon.glyphSize
+          Timer {
+            running: barGlyph.spinning
+            interval: 90
+            repeat: true
+            onTriggered: barGlyph.frame = (barGlyph.frame + 1) % barGlyph.frames.length
+          }
         }
 
         Rectangle {
