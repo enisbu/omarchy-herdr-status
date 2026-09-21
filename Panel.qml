@@ -570,14 +570,14 @@ Panel {
               font.pixelSize: Style.font.caption
               font.bold: true
             }
-          }
 
-          Text {
-            visible: row.elapsedText !== ""
-            text: row.elapsedText
-            color: root.dim
-            font.family: root.fontFamily
-            font.pixelSize: Style.font.caption
+            Text {
+              visible: row.elapsedText !== ""
+              text: row.elapsedText
+              color: root.dim
+              font.family: root.fontFamily
+              font.pixelSize: Style.font.caption
+            }
           }
         }
 
