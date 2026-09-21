@@ -201,7 +201,9 @@ Panel {
           text: spinning ? frames[frame] : "󰳆"
           color: root.barColor
           font.family: root.fontFamily
-          font.pixelSize: barIcon.glyphSize
+          // Braille frames sit taller in their line box than the herdr glyph,
+          // so the spinning state uses the smaller icon token to match the bar.
+          font.pixelSize: spinning ? Style.font.iconSmall : barIcon.glyphSize
           verticalAlignment: Text.AlignVCenter
           Timer {
             running: barGlyph.spinning
