@@ -189,7 +189,7 @@ Panel {
       Row {
         id: barIcon
         readonly property real glyphSize: Style.font.icon
-        spacing: Style.space(4)
+        spacing: Style.space(2)
         height: barGlyph.implicitHeight
 
         Text {
